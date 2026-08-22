@@ -23,12 +23,12 @@ const program = new Command();
 
 program
   .name('uipro')
-  .description('UI/UX Pro Max - August 2026 Multi-Agent Design System & Intelligence CLI')
+  .description('Rick Jefferson Design - August 2026 Multi-Agent Design System & Intelligence CLI')
   .version(pkg.version);
 
 program
   .command('init')
-  .description('Install UI/UX Pro Max skill to current project for any AI assistant')
+  .description('Install Rick Jefferson Design skill to current project for any AI assistant')
   .option('-a, --ai <type>', `AI assistant type (${AI_TYPES.join(', ')})`)
   .option('-f, --force', 'Overwrite existing files')
   .option('-o, --offline', 'Skip GitHub download, use bundled assets only')
@@ -110,7 +110,7 @@ program
 
 program
   .command('serve')
-  .description('Start live interactive August 2026 Design Studio web workbench & REST API')
+  .description('Start live interactive Rick Jefferson Design Studio web workbench & REST API')
   .option('-p, --port <port>', 'Server port', '8080')
   .action(async (options) => {
     await serveCommand({
@@ -125,7 +125,7 @@ program
 
 program
   .command('update')
-  .description('Update UI/UX Pro Max to latest version')
+  .description('Update Rick Jefferson Design to latest version')
   .option('-a, --ai <type>', `AI assistant type (${AI_TYPES.join(', ')})`)
   .action(async (options) => {
     if (options.ai && !AI_TYPES.includes(options.ai)) {

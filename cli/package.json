@@ -1,12 +1,13 @@
 {
-  "name": "uipro-cli",
+  "name": "rick-jefferson-design",
   "version": "3.0.0",
-  "description": "UI/UX Pro Max - August 2026 Multi-Agent Design System & Intelligence CLI",
+  "description": "Rick Jefferson Design - August 2026 Multi-Agent Design System & Intelligence CLI",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "uipro": "./dist/index.js"
+    "uipro": "./dist/index.js",
+    "rick-jefferson-design": "./dist/index.js"
   },
   "files": [
     "dist",
@@ -39,7 +40,7 @@
     "ai",
     "skill"
   ],
-  "author": "",
+  "author": "Rick Jefferson Design",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-UI/UX Pro Max - August 2026 Live Design Studio & REST API Server
+Rick Jefferson Design - August 2026 Live Design Studio & REST API Server
 Provides an interactive web workbench, live multi-agent visualizer, 2026 glassmorphic sandbox,
 design token inspector, and REST API for any software.
 """
@@ -25,7 +25,7 @@ STUDIO_HTML = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UI/UX Pro Max — August 2026 Multi-Agent Design Studio</title>
+  <title>Rick Jefferson Design — August 2026 Multi-Agent Design Studio</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,7 +123,7 @@ STUDIO_HTML = """<!DOCTYPE html>
       </div>
       <div>
         <h1 class="font-bold text-base tracking-tight flex items-center gap-2">
-          UI/UX Pro Max 
+          Rick Jefferson Design 
           <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">August 2026 Release</span>
         </h1>
         <p class="text-xs text-slate-400">Multi-Agent Design System Studio & Universal Integration Hub</p>
@@ -654,7 +654,7 @@ class StudioHandler(BaseHTTPRequestHandler):
 
 def run_studio_server(port=8080):
     server = HTTPServer(("0.0.0.0", port), StudioHandler)
-    print(f"🚀 UI/UX Pro Max August 2026 Design Studio active at http://0.0.0.0:{port}")
+    print(f"🚀 Rick Jefferson Design August 2026 Design Studio active at http://0.0.0.0:{port}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

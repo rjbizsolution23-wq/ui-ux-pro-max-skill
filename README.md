@@ -1,26 +1,19 @@
-# UI UX Pro Max (v3.0 — August 2026 Edition)
+# Rick Jefferson Design (v3.0 — August 2026 Edition)
 
 <p align="center">
-  <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/releases"><img src="https://img.shields.io/github/v/release/nextlevelbuilder/ui-ux-pro-max-skill?style=for-the-badge&color=blue" alt="GitHub Release"></a>
+  <img src="https://img.shields.io/badge/Rick_Jefferson_Design-v3.0.0-indigo?style=for-the-badge" alt="Rick Jefferson Design">
   <img src="https://img.shields.io/badge/multi--agent-6_specialists-emerald?style=for-the-badge" alt="6 Multi-Agents">
   <img src="https://img.shields.io/badge/W3C_DTCG-Design_Tokens-cyan?style=for-the-badge" alt="W3C DTCG Tokens">
   <img src="https://img.shields.io/badge/UI_styles-73-purple?style=for-the-badge" alt="73 UI Styles">
   <img src="https://img.shields.io/badge/WCAG-2.2_AAA-green?style=for-the-badge" alt="WCAG 2.2 AAA">
   <img src="https://img.shields.io/badge/MCP_Server-Standard_JSON--RPC-blue?style=for-the-badge" alt="MCP Server">
-  <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE"><img src="https://img.shields.io/github/license/nextlevelbuilder/ui-ux-pro-max-skill?style=for-the-badge&color=green" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"></a>
 </p>
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/uipro-cli"><img src="https://img.shields.io/npm/v/uipro-cli?style=flat-square&logo=npm&label=CLI" alt="npm"></a>
-  <a href="https://www.npmjs.com/package/uipro-cli"><img src="https://img.shields.io/npm/dm/uipro-cli?style=flat-square&label=downloads" alt="npm downloads"></a>
-  <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/stargazers"><img src="https://img.shields.io/github/stars/nextlevelbuilder/ui-ux-pro-max-skill?style=flat-square&logo=github" alt="GitHub stars"></a>
-  <a href="https://paypal.me/uiuxpromax"><img src="https://img.shields.io/badge/PayPal-Support%20Development-00457C?style=flat-square&logo=paypal&logoColor=white" alt="PayPal"></a>
-</p>
-
-An intelligent, multi-agent design system and UI/UX intelligence engine. Plug it into **any software, IDE, assistant, or platform** to generate state-of-the-art August 2026 interfaces featuring **Liquid Chromatic Glassmorphism, GPU-accelerated Multi-Plane Parallax, Spatial Bento 3.0, W3C DTCG Design Tokens, and WCAG 2.2 AAA accessibility compliance**.
+An intelligent, multi-agent design system and UI/UX intelligence engine by **Rick Jefferson Design**. Plug it into **any software, IDE, assistant, or platform** to generate state-of-the-art August 2026 interfaces featuring **Liquid Chromatic Glassmorphism, GPU-accelerated Multi-Plane Parallax, Spatial Bento 3.0, W3C DTCG Design Tokens, and WCAG 2.2 AAA accessibility compliance**.
 
 <p align="center">
-  <img src="screenshots/website.png" alt="UI UX Pro Max August 2026" width="800">
+  <img src="screenshots/website.png" alt="Rick Jefferson Design August 2026" width="800">
 </p>
 
 ---
@@ -29,7 +22,7 @@ An intelligent, multi-agent design system and UI/UX intelligence engine. Plug it
 
 ### 1. 🤖 Hierarchical Multi-Agent Design Orchestration Pipeline
 
-UI UX Pro Max coordinates **6 specialized agents** communicating over a typed message bus to take any prompt and synthesize complete, production-grade deliverables:
+Rick Jefferson Design coordinates **6 specialized agents** communicating over a typed message bus to take any prompt and synthesize complete, production-grade deliverables:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -95,7 +88,7 @@ UI UX Pro Max coordinates **6 specialized agents** communicating over a typed me
 
 | Integration Type | Supported Platforms & Environments | How to Connect |
 |---|---|---|
-| **AI Assistants & IDEs** | Claude Code, Cursor, Windsurf, Copilot, Kiro, Trae, Roo Code, Codex, Qoder, Gemini, Continue, CodeBuddy, OpenCode, Antigravity | `uipro init --ai all` or `uipro init --ai <type>` |
+| **AI Assistants & IDEs** | Claude Code, Cursor, Windsurf, Copilot, Kiro, Trae, Roo Code, Codex, Qoder, Gemini, Continue, CodeBuddy, OpenCode, Antigravity, Zed, Cline, JetBrains, VS Code | `uipro init --ai all` or `uipro init --ai <type>` |
 | **Universal MCP Server** | Cursor IDE, Claude Desktop, Windsurf Cascade, Cline, Zed Editor, LibreChat, AutoGen, LangChain | `uipro mcp` or `python3 search.py --mcp` |
 | **Command Line (CLI)** | Terminal / Shell / CI-CD Pipelines | `uipro agent "<prompt>" --persist` |
 | **Python SDK** | Python scripts, Flask, FastAPI, AI agent DAGs | `from multi_agent.pipeline import MultiAgentPipeline` |
@@ -115,21 +108,21 @@ npm install -g uipro-cli
 uipro init --ai claude      # Claude Code
 uipro init --ai cursor      # Cursor IDE
 uipro init --ai windsurf    # Windsurf
-uipro init --ai all         # All 14+ assistants at once!
+uipro init --ai all         # All 18+ assistants at once!
 ```
 
 ### Option 2: Universal Model Context Protocol (MCP) Server
 
-Connect UI/UX Pro Max to **Cursor, Claude Desktop, Windsurf, Cline, or Zed** via MCP:
+Connect Rick Jefferson Design to **Cursor, Claude Desktop, Windsurf, Cline, or Zed** via MCP:
 
 Add to your `claude_desktop_config.json` or Cursor MCP settings:
 
 ```json
 {
   "mcpServers": {
-    "ui-ux-pro-max": {
+    "rick-jefferson-design": {
       "command": "python3",
-      "args": ["/path/to/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/mcp_server.py"]
+      "args": ["/path/to/rick-jefferson-design/src/ui-ux-pro-max/scripts/mcp_server.py"]
     }
   }
 }
@@ -184,7 +177,7 @@ Open `http://localhost:8080` in your browser to:
 
 ## 💎 Design System Persistence (Master + Overrides Pattern)
 
-When executed with `--persist`, UI/UX Pro Max creates a structured, hierarchical design architecture:
+When executed with `--persist`, Rick Jefferson Design creates a structured, hierarchical design architecture:
 
 ```
 design-system/titan-vault/

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-UI/UX Pro Max is an AI-powered design intelligence and multi-agent orchestration system providing searchable databases of 73+ UI styles, 96 color palettes, 57 font pairings, W3C DTCG design tokens, 2026 animation patterns, and UX guidelines. It works as a skill/workflow for AI coding assistants, an MCP server, a CLI tool, and a live web design studio.
+Rick Jefferson Design is an AI-powered design intelligence and multi-agent orchestration system providing searchable databases of 73+ UI styles, 96 color palettes, 57 font pairings, W3C DTCG design tokens, 2026 animation patterns, and UX guidelines. It works as a skill/workflow for AI coding assistants, an MCP server, a CLI tool, and a live web design studio.
 
 ## Commands
 
@@ -74,7 +74,7 @@ src/ui-ux-pro-max/                # Source of Truth
     ├── base/                     # Base templates (skill-content.md, quick-reference.md)
     └── platforms/                # Platform configs (claude.json, cursor.json, ...)
 
-cli/                              # CLI installer (uipro-cli on npm)
+cli/                              # CLI installer (rick-jefferson-design / uipro on npm)
 ├── src/
 │   ├── commands/                 # init, agent, tokens, design, mcp, serve, update
 │   └── utils/                    # template rendering, github, logger
