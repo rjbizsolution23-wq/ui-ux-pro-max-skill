@@ -1,0 +1,18 @@
+{
+  "platform": "cline",
+  "displayName": "Cline (VS Code Extension)",
+  "installType": "full",
+  "folderStructure": {
+    "root": ".cline",
+    "skillPath": "skills/ui-ux-pro-max",
+    "filename": "SKILL.md"
+  },
+  "scriptPath": "skills/ui-ux-pro-max/scripts/search.py",
+  "frontmatter": null,
+  "sections": {
+    "quickReference": false
+  },
+  "title": "ui-ux-pro-max",
+  "description": "Autonomous UI/UX Design Intelligence for Cline. Provides multi-agent design orchestration, W3C DTCG tokens, liquid glassmorphism, and parallax systems.",
+  "skillOrWorkflow": "Skill"
+}

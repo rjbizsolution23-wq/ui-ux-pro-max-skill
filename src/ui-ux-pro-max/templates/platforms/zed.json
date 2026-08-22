@@ -1,0 +1,18 @@
+{
+  "platform": "zed",
+  "displayName": "Zed Editor",
+  "installType": "full",
+  "folderStructure": {
+    "root": ".zed",
+    "skillPath": "skills/ui-ux-pro-max",
+    "filename": "SKILL.md"
+  },
+  "scriptPath": "skills/ui-ux-pro-max/scripts/search.py",
+  "frontmatter": null,
+  "sections": {
+    "quickReference": false
+  },
+  "title": "ui-ux-pro-max",
+  "description": "August 2026 Multi-Agent UI/UX Design System Intelligence for Zed Editor. 73+ styles, W3C DTCG tokens, liquid glassmorphism, multi-depth parallax, and WCAG 2.2 AAA accessibility standards.",
+  "skillOrWorkflow": "Skill"
+}

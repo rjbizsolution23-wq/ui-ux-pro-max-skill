@@ -1,0 +1,18 @@
+{
+  "platform": "jetbrains",
+  "displayName": "JetBrains AI",
+  "installType": "full",
+  "folderStructure": {
+    "root": ".idea",
+    "skillPath": "ui-ux-pro-max",
+    "filename": "SKILL.md"
+  },
+  "scriptPath": "ui-ux-pro-max/scripts/search.py",
+  "frontmatter": null,
+  "sections": {
+    "quickReference": false
+  },
+  "title": "ui-ux-pro-max",
+  "description": "UI/UX Design Intelligence for JetBrains AI Assistant (WebStorm, IntelliJ IDEA, PyCharm).",
+  "skillOrWorkflow": "Skill"
+}

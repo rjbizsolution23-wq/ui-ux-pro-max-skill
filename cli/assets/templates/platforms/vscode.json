@@ -1,0 +1,18 @@
+{
+  "platform": "vscode",
+  "displayName": "VS Code (Copilot & Custom Instructions)",
+  "installType": "full",
+  "folderStructure": {
+    "root": ".vscode",
+    "skillPath": "ui-ux-pro-max",
+    "filename": "SKILL.md"
+  },
+  "scriptPath": "ui-ux-pro-max/scripts/search.py",
+  "frontmatter": null,
+  "sections": {
+    "quickReference": false
+  },
+  "title": "ui-ux-pro-max",
+  "description": "Comprehensive UI/UX Design Intelligence and W3C DTCG token rules for VS Code development.",
+  "skillOrWorkflow": "Skill"
+}

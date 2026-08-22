@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-UI/UX Pro Max Core - BM25 search engine for UI/UX style guides
+UI/UX Pro Max Core - August 2026 BM25 search engine & design intelligence kernel
 """
 
 import csv
@@ -17,32 +17,32 @@ MAX_RESULTS = 3
 CSV_CONFIG = {
     "style": {
         "file": "styles.csv",
-        "search_cols": ["Style Category", "Keywords", "Best For", "Type", "AI Prompt Keywords"],
+        "search_cols": ["Style Category", "Keywords", "Best For", "Type", "AI Prompt Keywords", "Era/Origin", "CSS/Technical Keywords"],
         "output_cols": ["Style Category", "Type", "Keywords", "Primary Colors", "Effects & Animation", "Best For", "Performance", "Accessibility", "Framework Compatibility", "Complexity", "AI Prompt Keywords", "CSS/Technical Keywords", "Implementation Checklist", "Design System Variables"]
     },
     "color": {
         "file": "colors.csv",
-        "search_cols": ["Product Type", "Notes"],
-        "output_cols": ["Product Type", "Primary (Hex)", "Secondary (Hex)", "CTA (Hex)", "Background (Hex)", "Text (Hex)", "Notes"]
+        "search_cols": ["Product Type", "Notes", "Border (Hex)"],
+        "output_cols": ["Product Type", "Primary (Hex)", "Secondary (Hex)", "CTA (Hex)", "Background (Hex)", "Text (Hex)", "Border (Hex)", "Notes"]
     },
     "chart": {
         "file": "charts.csv",
-        "search_cols": ["Data Type", "Keywords", "Best Chart Type", "Accessibility Notes"],
+        "search_cols": ["Data Type", "Keywords", "Best Chart Type", "Accessibility Notes", "Library Recommendation"],
         "output_cols": ["Data Type", "Keywords", "Best Chart Type", "Secondary Options", "Color Guidance", "Accessibility Notes", "Library Recommendation", "Interactive Level"]
     },
     "landing": {
         "file": "landing.csv",
-        "search_cols": ["Pattern Name", "Keywords", "Conversion Optimization", "Section Order"],
-        "output_cols": ["Pattern Name", "Keywords", "Section Order", "Primary CTA Placement", "Color Strategy", "Conversion Optimization"]
+        "search_cols": ["Pattern Name", "Keywords", "Conversion Optimization", "Section Order", "Recommended Effects"],
+        "output_cols": ["Pattern Name", "Keywords", "Section Order", "Primary CTA Placement", "Color Strategy", "Recommended Effects", "Conversion Optimization"]
     },
     "product": {
         "file": "products.csv",
-        "search_cols": ["Product Type", "Keywords", "Primary Style Recommendation", "Key Considerations"],
-        "output_cols": ["Product Type", "Keywords", "Primary Style Recommendation", "Secondary Styles", "Landing Page Pattern", "Dashboard Style (if applicable)", "Color Palette Focus"]
+        "search_cols": ["Product Type", "Keywords", "Primary Style Recommendation", "Key Considerations", "Landing Page Pattern"],
+        "output_cols": ["Product Type", "Keywords", "Primary Style Recommendation", "Secondary Styles", "Landing Page Pattern", "Dashboard Style (if applicable)", "Color Palette Focus", "Key Considerations"]
     },
     "ux": {
         "file": "ux-guidelines.csv",
-        "search_cols": ["Category", "Issue", "Description", "Platform"],
+        "search_cols": ["Category", "Issue", "Description", "Platform", "Do", "Don't"],
         "output_cols": ["Category", "Issue", "Platform", "Description", "Do", "Don't", "Code Example Good", "Code Example Bad", "Severity"]
     },
     "typography": {
@@ -52,8 +52,23 @@ CSV_CONFIG = {
     },
     "icons": {
         "file": "icons.csv",
-        "search_cols": ["Category", "Icon Name", "Keywords", "Best For"],
+        "search_cols": ["Category", "Icon Name", "Keywords", "Best For", "Library"],
         "output_cols": ["Category", "Icon Name", "Keywords", "Library", "Import Code", "Usage", "Best For", "Style"]
+    },
+    "animation": {
+        "file": "animations.csv",
+        "search_cols": ["Animation Pattern", "Category", "Trigger", "Best For", "August 2026 Specification", "CSS Implementation"],
+        "output_cols": ["Animation Pattern", "Category", "Trigger", "CSS Implementation", "Spring/Timing Formula", "Parallax Depth", "Hardware Acceleration", "Accessibility Fallback", "Best For", "August 2026 Specification"]
+    },
+    "token": {
+        "file": "design-tokens.csv",
+        "search_cols": ["Token Category", "Token Name", "DTCG Type", "W3C Token Path", "CSS Variable", "August 2026 Description"],
+        "output_cols": ["Token Category", "Token Name", "DTCG Type", "W3C Token Path", "CSS Variable", "Tailwind v4 Mapping", "Default Value", "Dark Mode Value", "August 2026 Description"]
+    },
+    "agent": {
+        "file": "agent-rules.csv",
+        "search_cols": ["Stage", "Agent Role", "Input Payload", "Output Artifact", "Validation Gate", "Handover Protocol"],
+        "output_cols": ["Stage", "Agent Role", "Input Payload", "Output Artifact", "Validation Gate", "Failure Fallback", "Handover Protocol"]
     },
     "react": {
         "file": "react-performance.csv",
@@ -184,6 +199,16 @@ def _search_csv(filepath, search_cols, output_cols, query, max_results):
             row = data[idx]
             results.append({col: row.get(col, "") for col in output_cols if col in row})
 
+    # If score was 0 for all, fallback to top items containing any substring
+    if not results and data:
+        q_tokens = [w for w in re.sub(r'[^\w\s]', ' ', query.lower()).split() if len(w) > 2]
+        for row in data:
+            row_text = " ".join(str(row.get(col, "")).lower() for col in search_cols)
+            if any(t in row_text for t in q_tokens):
+                results.append({col: row.get(col, "") for col in output_cols if col in row})
+                if len(results) >= max_results:
+                    break
+
     return results
 
 
@@ -192,13 +217,16 @@ def detect_domain(query):
     query_lower = query.lower()
 
     domain_keywords = {
-        "color": ["color", "palette", "hex", "#", "rgb"],
+        "animation": ["animation", "parallax", "scroll", "motion", "spring", "inertial", "tilt", "shimmer", "cursor", "view transition", "stagger"],
+        "token": ["token", "tokens", "dtcg", "w3c", "variable", "oklch", "scale", "spacing token", "color token", "radius token"],
+        "agent": ["agent", "multi-agent", "pipeline", "handover", "orchestrator", "supervisor", "qa agent", "validation gate"],
+        "color": ["color", "palette", "hex", "#", "rgb", "oklch", "hue", "theme"],
         "chart": ["chart", "graph", "visualization", "trend", "bar", "pie", "scatter", "heatmap", "funnel"],
-        "landing": ["landing", "page", "cta", "conversion", "hero", "testimonial", "pricing", "section"],
-        "product": ["saas", "ecommerce", "e-commerce", "fintech", "healthcare", "gaming", "portfolio", "crypto", "dashboard"],
-        "style": ["style", "design", "ui", "minimalism", "glassmorphism", "neumorphism", "brutalism", "dark mode", "flat", "aurora", "prompt", "css", "implementation", "variable", "checklist", "tailwind"],
-        "ux": ["ux", "usability", "accessibility", "wcag", "touch", "scroll", "animation", "keyboard", "navigation", "mobile"],
-        "typography": ["font", "typography", "heading", "serif", "sans"],
+        "landing": ["landing", "page", "cta", "conversion", "hero", "testimonial", "pricing", "section", "pattern"],
+        "product": ["saas", "ecommerce", "e-commerce", "fintech", "healthcare", "gaming", "portfolio", "crypto", "dashboard", "b2b"],
+        "style": ["style", "design", "ui", "minimalism", "glassmorphism", "neumorphism", "brutalism", "dark mode", "flat", "aurora", "bento", "prompt", "css", "spatial", "oled", "cyber"],
+        "ux": ["ux", "usability", "accessibility", "wcag", "touch", "scroll", "animation", "keyboard", "navigation", "mobile", "a11y"],
+        "typography": ["font", "typography", "heading", "serif", "sans", "google fonts", "clamp", "font pairing"],
         "icons": ["icon", "icons", "lucide", "heroicons", "symbol", "glyph", "pictogram", "svg icon"],
         "react": ["react", "next.js", "nextjs", "suspense", "memo", "usecallback", "useeffect", "rerender", "bundle", "waterfall", "barrel", "dynamic import", "rsc", "server component"],
         "web": ["aria", "focus", "outline", "semantic", "virtualize", "autocomplete", "form", "input type", "preconnect"]

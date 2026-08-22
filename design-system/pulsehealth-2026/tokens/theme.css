@@ -1,0 +1,74 @@
+/* UI UX Pro Max - August 2026 Design Tokens */
+:root {
+  /* Colors - Primary Brand */
+  --color-primary: #0891B2;
+  --color-secondary: #22D3EE;
+  --color-cta: #22C55E;
+  --color-bg: #F0FDFA;
+  --color-surface: #ffffff;
+  --color-text: #134E4A;
+  --color-text-muted: #64748b;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-specular: rgba(255, 255, 255, 0.6);
+
+  /* Typography */
+  --font-heading: 'Figtree', system-ui, sans-serif;
+  --font-body: 'Noto Sans', system-ui, sans-serif;
+  --font-size-display: clamp(2.5rem, 1.8rem + 3.5vw, 5.5rem);
+  --font-size-h1: clamp(2.0rem, 1.5rem + 2.2vw, 3.75rem);
+  --font-size-h2: clamp(1.5rem, 1.25rem + 1.2vw, 2.5rem);
+  --font-size-body: clamp(1.0rem, 0.95rem + 0.35vw, 1.125rem);
+
+  /* 2026 Glassmorphism Specifications */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-blur: 24px;
+  --glass-saturate: 190%;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+
+  /* 2026 Parallax Depth Layers */
+  --parallax-d1: 0.10;
+  --parallax-d2: 0.25;
+  --parallax-d3: 0.50;
+  --parallax-d4: 0.85;
+  --perspective-default: 1000px;
+
+  /* Physics & Motion Tokens */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-spatial: 600ms;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-bento: 24px;
+  --radius-pill: 9999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0B0F19;
+    --color-surface: #131722;
+    --color-text: #F8FAFC;
+    --color-text-muted: #94a3b8;
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-border-specular: rgba(255, 255, 255, 0.20);
+    --glass-bg: rgba(18, 20, 32, 0.68);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+.dark {
+  --color-bg: #0B0F19;
+  --color-surface: #131722;
+  --color-text: #F8FAFC;
+  --color-text-muted: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.10);
+  --color-border-specular: rgba(255, 255, 255, 0.20);
+  --glass-bg: rgba(18, 20, 32, 0.68);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
