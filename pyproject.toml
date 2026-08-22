@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rick-jefferson-design"
+version = "3.0.0"
+description = "Rick Jefferson Design - August 2026 Multi-Agent Design System, W3C DTCG Token Engine & MCP Server"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Rick Jefferson Design" }]
+keywords = [
+    "ui", "ux", "design-system", "design-tokens", "dtcg", 
+    "glassmorphism", "parallax", "multi-agent", "mcp", "ai-skill"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: User Interfaces",
+]
+
+[project.scripts]
+ui-ux-pro-max = "src.ui_ux_pro_max.scripts.search:main"
+uipro = "src.ui_ux_pro_max.scripts.search:main"
+uipro-mcp = "src.ui_ux_pro_max.scripts.mcp_server:run_stdio_server"
+uipro-studio = "src.ui_ux_pro_max.scripts.studio_server:run_studio_server"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

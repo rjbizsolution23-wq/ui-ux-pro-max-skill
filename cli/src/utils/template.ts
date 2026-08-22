@@ -3,7 +3,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-// After bun build: dist/index.js -> ../assets = cli/assets ✓
+// After build: dist/index.js -> ../assets = cli/assets
 const ASSETS_DIR = join(__dirname, '..', 'assets');
 
 export interface PlatformConfig {
@@ -41,6 +41,10 @@ const AI_TO_PLATFORM: Record<string, string> = {
   trae: 'trae',
   continue: 'continue',
   codebuddy: 'codebuddy',
+  zed: 'zed',
+  cline: 'cline',
+  jetbrains: 'jetbrains',
+  vscode: 'vscode',
 };
 
 async function exists(path: string): Promise<boolean> {
@@ -100,7 +104,6 @@ function renderFrontmatter(frontmatter: Record<string, string> | null): string {
 
   const lines = ['---'];
   for (const [key, value] of Object.entries(frontmatter)) {
-    // Quote values that contain special characters
     if (value.includes(':') || value.includes('"') || value.includes('\n')) {
       lines.push(`${key}: "${value.replace(/"/g, '\\"')}"`);
     } else {
@@ -115,20 +118,14 @@ function renderFrontmatter(frontmatter: Record<string, string> | null): string {
  * Render skill file content from template
  */
 export async function renderSkillFile(config: PlatformConfig): Promise<string> {
-  // Load base template
   let content = await loadTemplate('base/skill-content.md');
 
-  // Load quick reference if needed
   let quickReferenceContent = '';
   if (config.sections.quickReference) {
     quickReferenceContent = await loadTemplate('base/quick-reference.md');
   }
 
-  // Build the final content
   const frontmatter = renderFrontmatter(config.frontmatter);
-
-  // Replace placeholders
-  // Add newline before quick reference content if it exists
   const quickRefWithNewline = quickReferenceContent ? '\n' + quickReferenceContent : '';
 
   content = content
@@ -151,13 +148,11 @@ async function copyDataAndScripts(targetSkillDir: string): Promise<void> {
   const dataTarget = join(targetSkillDir, 'data');
   const scriptsTarget = join(targetSkillDir, 'scripts');
 
-  // Copy data
   if (await exists(dataSource)) {
     await mkdir(dataTarget, { recursive: true });
     await cp(dataSource, dataTarget, { recursive: true });
   }
 
-  // Copy scripts
   if (await exists(scriptsSource)) {
     await mkdir(scriptsTarget, { recursive: true });
     await cp(scriptsSource, scriptsTarget, { recursive: true });
@@ -166,7 +161,6 @@ async function copyDataAndScripts(targetSkillDir: string): Promise<void> {
 
 /**
  * Generate platform files for a specific AI type
- * All platforms use self-contained installation with data and scripts
  */
 export async function generatePlatformFiles(
   targetDir: string,
@@ -175,23 +169,19 @@ export async function generatePlatformFiles(
   const config = await loadPlatformConfig(aiType);
   const createdFolders: string[] = [];
 
-  // Determine full skill directory path
   const skillDir = join(
     targetDir,
     config.folderStructure.root,
     config.folderStructure.skillPath
   );
 
-  // Create directory structure
   await mkdir(skillDir, { recursive: true });
 
-  // Render and write skill file
   const skillContent = await renderSkillFile(config);
   const skillFilePath = join(skillDir, config.folderStructure.filename);
   await writeFile(skillFilePath, skillContent, 'utf-8');
   createdFolders.push(config.folderStructure.root);
 
-  // Copy data and scripts into the skill directory (self-contained)
   await copyDataAndScripts(skillDir);
 
   return createdFolders;

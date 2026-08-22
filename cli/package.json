@@ -1,24 +1,33 @@
 {
-  "name": "uipro-cli",
-  "version": "2.2.3",
-  "description": "CLI to install UI/UX Pro Max skill for AI coding assistants",
+  "name": "rick-jefferson-design",
+  "version": "3.0.0",
+  "description": "Rick Jefferson Design - August 2026 Multi-Agent Design System & Intelligence CLI",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "uipro": "./dist/index.js"
+    "uipro": "./dist/index.js",
+    "rick-jefferson-design": "./dist/index.js"
   },
   "files": [
     "dist",
     "assets"
   ],
   "scripts": {
-    "build": "bun build src/index.ts --outdir dist --target node",
-    "dev": "bun run src/index.ts",
-    "prepublishOnly": "bun run build"
+    "build": "npx esbuild src/index.ts --bundle --platform=node --packages=external --format=esm --outfile=dist/index.js",
+    "dev": "npx tsx src/index.ts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "ui",
     "ux",
     "design",
+    "tokens",
+    "dtcg",
+    "glassmorphism",
+    "parallax",
+    "multi-agent",
+    "mcp",
     "claude",
     "cursor",
     "windsurf",
@@ -31,18 +40,19 @@
     "ai",
     "skill"
   ],
-  "author": "",
+  "author": "Rick Jefferson Design",
   "license": "MIT",
   "dependencies": {
-    "commander": "^12.1.0",
     "chalk": "^5.3.0",
+    "commander": "^12.1.0",
     "ora": "^8.1.1",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.14",
     "@types/node": "^22.10.1",
     "@types/prompts": "^2.4.9",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.12",
     "typescript": "^5.7.2"
   }
 }
